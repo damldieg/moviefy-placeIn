@@ -3,7 +3,7 @@ import { MoviesAPIResponse } from "../../types/MoviesAPI";
 
 const EMPTY_CATEGORY = 'empty';
 
-export const listedPodcastAdapter = (apiResponse: MoviesAPIResponse, category?: string): ListedMovie[] => {
+export const listedMoviesAdapter = (apiResponse: MoviesAPIResponse, category?: string): ListedMovie[] => {
     return apiResponse?.results.map((m) => {
         return {
             id: m.id,

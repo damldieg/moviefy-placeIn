@@ -4,7 +4,7 @@ import { ListedMovie } from "../../domain/models/ListedMovie";
 import { MovieDetails } from "../../domain/models/MovieDetails";
 import { get } from "../../services/api";
 import { MovieDetailsAPIResponse, MoviesAPIResponse } from "../../types/MoviesAPI";
-import { listedPodcastAdapter } from "../adapters/listedPodcast.adapter";
+import { listedMoviesAdapter } from "../adapters/listedMovies.adapter";
 import { movieDetailsAdapter } from "../adapters/movieDetails.adapter";
 import { IMoviesHTTPRepository } from "./IMoviesHTTPRepository";
 
@@ -12,31 +12,31 @@ export class MovieHTTPRepository implements IMoviesHTTPRepository {
     async getNowPlayingMovies(): Promise<ListedMovie[]> {
         const response = await get<MoviesAPIResponse>(`${API_URL}${NOW_PLAYING}?api_key=${API_KEY}`);
 
-        return listedPodcastAdapter(response)
+        return listedMoviesAdapter(response)
     }
     
     async getPopularMovies(): Promise<ListedMovie[]> {
         const response = await get<MoviesAPIResponse>(`${API_URL}${POPULAR}?api_key=${API_KEY}`);
 
-        return listedPodcastAdapter(response)
+        return listedMoviesAdapter(response)
     }
     
     async getTopRatedMovies(): Promise<ListedMovie[]> {
         const response = await get<MoviesAPIResponse>(`${API_URL}${TOP_RATED}?api_key=${API_KEY}`);
 
-        return listedPodcastAdapter(response)
+        return listedMoviesAdapter(response)
     }
     
     async getUpcomingMovies(): Promise<ListedMovie[]> {
         const response = await get<MoviesAPIResponse>(`${API_URL}${UPCOMING}?api_key=${API_KEY}`);
 
-        return listedPodcastAdapter(response)
+        return listedMoviesAdapter(response)
     }
 
     async getMovieByQuery(query: string): Promise<ListedMovie[]> {
         const response = await get<MoviesAPIResponse>(`${API_URL_SEARCH}?api_key=${API_KEY}&query=${query}`);
 
-        return listedPodcastAdapter(response)
+        return listedMoviesAdapter(response)
     }
 
     async getMovieById(id: number): Promise<MovieDetails> {
