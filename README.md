@@ -1,27 +1,57 @@
-# React + TypeScript + Vite
+<h1 align="center" id="title">Moviefy</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p id="description">This a code challenge base on React + Typescript + Redux-toolkit + DDD + Tailwind</p>
 
-Currently, two official plugins are available:
+<h2>Architecture</h2>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Alt text](image.png)
+  
+<h2>🧐 Features</h2>
 
-## Expanding the ESLint configuration
+Here're some of the project's best features:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+*   List of movies
+*   List of rated movies
+*   Movie details
+*   Rate a movie
 
-- Configure the top-level `parserOptions` property like this:
+<h2>🛠️ Installation Steps:</h2>
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+<p>1. Install</p>
+
+```
+pnpm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+<p>2. Build</p>
+
+```
+pnpm run build
+```
+
+
+<p>3. Run local app</p>
+
+```
+pnpm run dev
+```
+
+
+<p>4. Preview production</p>
+
+```
+pnpm run preview
+```
+
+  
+<h2>💻 Built with</h2>
+
+Technologies used in the project:
+
+*   React
+*   Redux
+*   Typescript
+*   Vite
+*   Tailwind
+*   React-Route
