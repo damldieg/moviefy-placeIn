@@ -31,6 +31,7 @@ export class Movies implements IMovies {
     rateMovie(stars: number, comments: string, movie: MovieDetails): RatedMovie {
         return {
             ...movie,
+            category: 'empty',
             stars,
             comments
         }

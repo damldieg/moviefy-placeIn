@@ -3,11 +3,11 @@ import { useSelector } from "react-redux";
 import { MovieCard } from "./MovieCard";
 
 const MoviesList = () => {
-  const { listedMovies, searchedMovies } = useSelector(
+  const { listedMovies, searchedMovies, isSearchingMovies } = useSelector(
     (state: RootState) => state.moviefy
   );
 
-  const movies = searchedMovies.length > 0 ? searchedMovies : listedMovies;
+  const movies = ( searchedMovies.length > 0 && isSearchingMovies ) ? searchedMovies : listedMovies;
   return (
     <div className="flex flex-wrap justify-center w-full gap-10 m-auto">
       {movies.map((m, index) => (

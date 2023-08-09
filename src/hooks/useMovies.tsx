@@ -3,6 +3,7 @@ import {
   addMoviesList,
   addRatedMovie,
   addSeachedMoviesList,
+  isSearchingMovies,
   setMovieDetailsLoadState,
   setMoviefyLoadState,
 } from "../data/redux/reducers/moviefySlice";
@@ -32,6 +33,7 @@ export const useMovies = (): IUseMovies => {
     await moviesUseCase
       .searchMovie(query)
       .then((r) => dispatch(addSeachedMoviesList(r)));
+    dispatch(isSearchingMovies(true));
     dispatch(setMoviefyLoadState("completed"));
   };
 
