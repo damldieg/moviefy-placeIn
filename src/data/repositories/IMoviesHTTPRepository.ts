@@ -7,5 +7,5 @@ export interface IMoviesHTTPRepository {
     getPopularMovies(): Promise<ListedMovie[]>
     getUpcomingMovies(): Promise<ListedMovie[]>
     getMovieByQuery(query: string): Promise<ListedMovie[]>
-    getMovieById(id: number): Promise<MovieDetails>
+    getMovieById(id: string): Promise<MovieDetails>
 }

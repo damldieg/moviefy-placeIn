@@ -4,7 +4,7 @@ import { RatedMovie } from "../models/RatedMovie";
 
 export interface IMovies {
     getAll(): Promise<ListedMovie[]>
-    getById(id: number): Promise<MovieDetails>
+    getById(id: string): Promise<MovieDetails>
     searchMovie(query: string): Promise<ListedMovie[] | ListedMovie>
     rateMovie(stars: number, comments: string, movieId: MovieDetails): RatedMovie
 }

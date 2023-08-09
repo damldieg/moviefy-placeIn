@@ -22,7 +22,7 @@ export class Movies implements IMovies {
         return result
     }
 
-    async getById(id: number): Promise<MovieDetails> {
+    async getById(id: string): Promise<MovieDetails> {
         const movie = await this.moviesHTTPRepository.getMovieById(id)
 
         return movie

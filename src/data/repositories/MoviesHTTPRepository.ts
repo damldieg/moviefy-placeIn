@@ -8,29 +8,35 @@ import { listedMoviesAdapter } from "../adapters/listedMovies.adapter";
 import { movieDetailsAdapter } from "../adapters/movieDetails.adapter";
 import { IMoviesHTTPRepository } from "./IMoviesHTTPRepository";
 
+const Tags = {
+    [NOW_PLAYING]: 'Now playing',
+    [POPULAR]: 'Popular',
+    [TOP_RATED]: 'Top rated',
+    [UPCOMING]: 'Upcoming'
+}
 export class MovieHTTPRepository implements IMoviesHTTPRepository {
     async getNowPlayingMovies(): Promise<ListedMovie[]> {
         const response = await get<MoviesAPIResponse>(`${API_URL}${NOW_PLAYING}?api_key=${API_KEY}`);
 
-        return listedMoviesAdapter(response)
+        return listedMoviesAdapter(response, Tags[NOW_PLAYING])
     }
     
     async getPopularMovies(): Promise<ListedMovie[]> {
         const response = await get<MoviesAPIResponse>(`${API_URL}${POPULAR}?api_key=${API_KEY}`);
 
-        return listedMoviesAdapter(response)
+        return listedMoviesAdapter(response, Tags[POPULAR])
     }
     
     async getTopRatedMovies(): Promise<ListedMovie[]> {
         const response = await get<MoviesAPIResponse>(`${API_URL}${TOP_RATED}?api_key=${API_KEY}`);
 
-        return listedMoviesAdapter(response)
+        return listedMoviesAdapter(response, Tags[TOP_RATED])
     }
     
     async getUpcomingMovies(): Promise<ListedMovie[]> {
         const response = await get<MoviesAPIResponse>(`${API_URL}${UPCOMING}?api_key=${API_KEY}`);
 
-        return listedMoviesAdapter(response)
+        return listedMoviesAdapter(response, Tags[UPCOMING])
     }
 
     async getMovieByQuery(query: string): Promise<ListedMovie[]> {
@@ -39,7 +45,7 @@ export class MovieHTTPRepository implements IMoviesHTTPRepository {
         return listedMoviesAdapter(response)
     }
 
-    async getMovieById(id: number): Promise<MovieDetails> {
+    async getMovieById(id: string): Promise<MovieDetails> {
         const response = await get<MovieDetailsAPIResponse>(`${API_URL}${id}?api_key=${API_KEY}`)
 
         return movieDetailsAdapter(response)
